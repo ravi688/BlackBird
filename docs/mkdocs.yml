@@ -2,6 +2,8 @@ site_name: BlackBird documentation
 site_description: Documentation for BlackBird
 site_author: rpsingh
 
+docs_dir: .
+
 nav:
   - Home: index.md
   - Getting Started: getting-started.md
