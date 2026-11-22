@@ -24,3 +24,21 @@ NOTE: Make sure to run the following commands to build and perform lint checks f
 npm run build
 npm run lint
 ```
+
+## Docker
+### Individual docker files
+#### Backend
+```
+cd blackbird/backend
+docker build -t blackbird-backend .
+```
+#### Frontend
+```
+cd blackbird/frontend
+docker build -t blackbird-frontend -f Dockerfile blackbird/
+```
+### Using docker compose
+```
+cd blackbird
+docker compose up --build
+```
