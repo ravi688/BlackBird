@@ -43,3 +43,6 @@ docker build -t blackbird-frontend -f Dockerfile blackbird/
 cd blackbird
 docker compose up --build
 ```
+
+## License
+MIT
