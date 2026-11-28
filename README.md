@@ -1,6 +1,14 @@
 # BlackBird
 Over the air update infrastructure software
 
+## Environment configuration
+Create a `.env` file inside `blackbird/backend` directory. Put values of `ADMIN_USERNAME`, and `ADMIN_PASSWORD_HASH`, this is required for admin credentials to check against.
+
+For creating the password hash, do this
+```
+python -c "from pwdlib import PasswordHash; print(PasswordHash.recommended().hash('YourPassword'))"
+```
+
 ## Backend
 ```
 cd blackbird/backend
