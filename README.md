@@ -27,21 +27,9 @@ npm run lint
 ```
 
 ## Docker
-### Individual docker files
-#### Backend
-```
-cd blackbird/backend
-docker build -t blackbird-backend .
-```
-#### Frontend
-```
-cd blackbird/frontend
-docker build -t blackbird-frontend -f Dockerfile blackbird/
-```
-### Using docker compose
 ```
 cd blackbird
-docker compose up --build
+docker compose up --build --force-recreate
 ```
 
 ## License
