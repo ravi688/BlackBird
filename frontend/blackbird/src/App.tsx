@@ -1,9 +1,27 @@
 
+import Login from "./components/Login.tsx";
+
+import './App.css';
+
 function App() {
+
+	const handleLogin = async (username: string, password: string) => {
+        const response = await fetch(`/api/admin/login`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            credentials: "include",
+            body: JSON.stringify({ username, password }),
+        });
+
+        if (!response.ok) {
+            throw new Error("Invalid username or password");
+        }
+	};
 	return (
-		<div>
-			<h1>Hello World</h1>
-			<p>Welcome to my React + TypeScript application.</p>
+		<div className="login-container">
+			<Login onLogin={handleLogin} />
 		</div>
 	)
 }

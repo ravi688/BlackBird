@@ -1,13 +1,21 @@
-FROM node:24-alpine
+# Build React frontend
+FROM node:24-alpine AS frontend-build
 
 WORKDIR /blackbird
 
-COPY package*.json ./
+COPY blackbird/package*.json ./
+RUN npm ci
 
-RUN npm clean-install
+COPY blackbird/ ./
 
-COPY . .
+RUN npm run build
 
-EXPOSE 3000
 
-CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "3000"]
+# Nginx reverse proxy + static frontend
+FROM nginx:alpine
+
+COPY ngnix.conf /etc/nginx/conf.d/default.conf
+
+COPY --from=frontend-build /blackbird/dist /usr/share/nginx/html
+
+EXPOSE 80

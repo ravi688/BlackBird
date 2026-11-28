@@ -14,13 +14,13 @@ services:
 
   frontend:
     build:
-      context: ./frontend/blackbird
-      dockerfile: ../Dockerfile
+      context: ./frontend/
+      dockerfile: Dockerfile
 
     container_name: blackbird-frontend
 
     ports:
-      - "3000:3000"
+      - "80:80"
 
     depends_on:
       - backend
